@@ -426,10 +426,10 @@ def _load_checkpoint(
             with open(file_path, "rb") as f:
                 checkpoint_bytes = f.read()
             with io.BytesIO(checkpoint_bytes) as fp:
-                return torch.load(fp, map_location=device)
+                return torch.load(fp, map_location=device, weights_only=False)
         else:
             with open(file_path, "rb") as fp:
-                return torch.load(fp, map_location=device)
+                return torch.load(fp, map_location=device, weights_only=False)
 
 
 def _load_sharded_checkpoint(
