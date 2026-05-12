@@ -32,7 +32,6 @@ RUN set -eux; \
   done; \
   uv sync --frozen --no-install-project --no-editable --no-cache "$@"
 
-RUN uv pip install python-multipart
 # Copy the source code and install the package only
 COPY whisperlivekit /app/whisperlivekit
 RUN set -eux; \

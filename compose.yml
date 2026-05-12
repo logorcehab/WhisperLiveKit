@@ -14,7 +14,7 @@ services:
       # - ${HF_TKN_FILE:-./token}:/root/.cache/huggingface/token:ro
     environment:
       - HF_TOKEN
-    command: ["--model", "medium", "--diarization", "--pcm-input"]
+    command: ["--model", "large-v3-turbo.ak", "--diarization", "--pcm-input"]
 
   wlk-gpu-voxtral:
     build:
