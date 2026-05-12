@@ -52,8 +52,12 @@ def _is_ct2_model_bin(directory: Path, filename: str) -> bool:
     if n_indicators == 0:
         return False
 
+    print("indicators found")
+
     config_path = directory / "config.json" #test 2
+
     if config_path.exists():
+        print("config exists")
         try:
             with open(config_path, "r", encoding="utf-8") as f:
                 config = json.load(f)
