@@ -57,8 +57,8 @@ def _is_ct2_model_bin(directory: Path, filename: str) -> bool:
         try:
             with open(config_path, "r", encoding="utf-8") as f:
                 config = json.load(f)
-            if config.get("model_type") == "whisper": #test 2
-                return False
+            # if config.get("model_type") == "whisper": #test 2
+            #     return False
         except (json.JSONDecodeError, IOError):
             pass
 
@@ -167,10 +167,9 @@ def detect_model_format(model_path: Union[str, Path]) -> ModelInfo:
 
         if filename in MLX_WHISPER_MARKERS:
             info.compatible_whisper_mlx = True
-        print("is dir")
-        if filename in FASTER_WHISPER_MARKERS:
-            print("has fw")
 
+        if filename in FASTER_WHISPER_MARKERS:
+            
             if _is_ct2_model_bin(path, filename):
                 info.compatible_faster_whisper = True
 
