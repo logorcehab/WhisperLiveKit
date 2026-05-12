@@ -522,7 +522,8 @@ def load_model(
         else:
             checkpoint = _load_checkpoint(name, device)
         model_path_for_config = name
-    elif os.path.isdir(name):
+    elif os.path.isdir(name) or name == "fiifinketia/whisper-large-v3-turbo-akan":
+        name = "/root/.cache/huggingface/hub/models--fiifinketia--whisper-large-v3-turbo-akan/snapshots/acc77ec788a35b09edef5f315af04eea77b1d077"
         model_info = detect_model_format(name)
 
         if not model_info.has_pytorch:
