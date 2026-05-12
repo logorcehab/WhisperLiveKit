@@ -15,6 +15,22 @@ services:
     environment:
       - HF_TOKEN
     command: ["--model", "medium", "--diarization", "--pcm-input"]
+  akan-large-v3:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        EXTRAS: ${GPU_SORTFORMER_EXTRAS:-cu129,diarization-sortformer}
+    image: wlk:gpu-sortformer
+    gpus: all
+    ports:
+      - "8100:8000"
+    volumes:
+      - hf-cache:/root/.cache/huggingface/hub
+      # - ${HF_TKN_FILE:-./token}:/root/.cache/huggingface/token:ro
+    environment:
+      - HF_TOKEN
+    command: ["--model-path", "katrintomanek/whisper-large-v3-turbo_Akan_standardspeech_specaugment", "--diarization", "--pcm-input"]
 
   wlk-gpu-voxtral:
     build:
