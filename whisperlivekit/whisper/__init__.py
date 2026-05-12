@@ -526,11 +526,11 @@ def load_model(
         name = "/root/.cache/huggingface/hub/models--fiifinketia--whisper-large-v3-turbo-akan/snapshots/acc77ec788a35b09edef5f315af04eea77b1d077"
         model_info = detect_model_format(name)
 
-        if not model_info.has_pytorch:
-            raise RuntimeError(
-                f"No PyTorch checkpoint found in directory {name}. "
-                f"Expected .pt, .bin, or .safetensors file(s)."
-            )
+        # if not model_info.has_pytorch:
+        #     raise RuntimeError(
+        #         f"No PyTorch checkpoint found in directory {name}. "
+        #         f"Expected .pt, .bin, or .safetensors file(s)."
+        #     )
 
         if model_info.is_sharded:
             checkpoint = _load_sharded_checkpoint(model_info.pytorch_files, device)

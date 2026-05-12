@@ -62,7 +62,6 @@ def _is_ct2_model_bin(directory: Path, filename: str) -> bool:
             if config.get("model_type") == "whisper": #test 2
                 return False
         except (json.JSONDecodeError, IOError):
-            print("error")
             pass
 
     return True
@@ -175,7 +174,6 @@ def detect_model_format(model_path: Union[str, Path]) -> ModelInfo:
             
             if _is_ct2_model_bin(path, filename):
                 info.compatible_faster_whisper = True
-            print("here")
 
     info.pytorch_files = _collect_pytorch_files(path)
 
