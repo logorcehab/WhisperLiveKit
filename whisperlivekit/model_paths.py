@@ -117,7 +117,7 @@ def _collect_pytorch_files(directory: Path) -> List[Path]:
 
         if filename == "model.safetensors":
             single_files[0] = file  # Highest priority
-        elif filename == "pytorch_model.bin":
+        elif filename == "model.bin":
             single_files[1] = file
         elif suffix == ".pt":
             single_files[2] = file
